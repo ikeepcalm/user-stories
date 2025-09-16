@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Tracker - Адміністрування акаунтів</title>
+    <link rel="stylesheet" href="public/admin.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <h1>Bug Tracker</h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="#" class="active">Адміністрування</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <span class="user-name">TestAdmin</span>
+            <button class="sign-out-btn">Вийти</button>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="admin-header">
+        <h1>Адміністрування акаунтів</h1>
+        <p>Керування користувачами, ролями та дозволами в системі Bug Tracker</p>
+    </div>
+
+    <div class="admin-content">
+        <div class="admin-actions">
+            <div class="action-card">
+                <h3>
+                    <span class="icon icon-create">+</span>
+                    Створити акаунт
+                </h3>
+                <p>Додати нового користувача в систему з налаштуванням ролі та дозволів</p>
+                <button class="btn btn-create" onclick="openModal('create-user-modal')">
+                    Створити користувача
+                </button>
+            </div>
+
+            <div class="action-card">
+                <h3>
+                    <span class="icon icon-remove">-</span>
+                    Видалити акаунт
+                </h3>
+                <p>Видалити користувача з системи з можливістю збереження історії активності</p>
+                <button class="btn btn-remove" onclick="openModal('remove-user-modal')">
+                    Видалити користувача
+                </button>
+            </div>
+
+            <div class="action-card">
+                <h3>
+                    <span class="icon icon-edit">✎</span>
+                    Редагувати акаунт
+                </h3>
+                <p>Змінити інформацію користувача, роль або статус активності</p>
+                <button class="btn btn-edit" onclick="openModal('edit-user-modal')">
+                    Редагувати користувача
+                </button>
+            </div>
+
+            <div class="action-card">
+                <h3>
+                    <span class="icon icon-roles">⚙</span>
+                    Керування ролями
+                </h3>
+                <p>Налаштування ролей та дозволів для різних типів користувачів</p>
+                <button class="btn btn-roles">
+                    Налаштувати ролі
+                </button>
+            </div>
+        </div>
+
+        <div class="users-section">
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Всього користувачів</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Активних користувачів</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Адміністраторів</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Розробників</div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Список користувачів</h2>
+                <div class="search-users">
+                    <label>
+                        <input type="text" class="search-input" placeholder="Пошук користувачів...">
+                    </label>
+                    <label>
+                        <select class="filter-select">
+                            <option value="">Всі ролі</option>
+                            <option value="admin">Адміністратори</option>
+                            <option value="developer">Розробники</option>
+                            <option value="tester">Тестувальники</option>
+                            <option value="user">Користувачі</option>
+                        </select>
+                    </label>
+                    <label>
+                        <select class="filter-select">
+                            <option value="">Всі статуси</option>
+                            <option value="active">Активні</option>
+                            <option value="inactive">Неактивні</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="users-table-container">
+                <table class="users-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ім'я користувача</th>
+                        <th>Email</th>
+                        <th>Роль</th>
+                        <th>Статус</th>
+                        <th>Останній вхід</th>
+                        <th>Дії</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td>TestAdmin</td>
+                        <td>admin@bugtracker.com</td>
+                        <td><span class="role-badge role-admin">Адміністратор</span></td>
+                        <td><span class="status-badge status-active">Активний</span></td>
+                        <td>2024-01-15 14:30</td>
+                        <td>
+                            <div class="user-actions">
+                                <button class="btn btn-edit btn-small">Редагувати</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td>Developer1</td>
+                        <td>dev1@bugtracker.com</td>
+                        <td><span class="role-badge role-developer">Розробник</span></td>
+                        <td><span class="status-badge status-active">Активний</span></td>
+                        <td>2024-01-15 12:15</td>
+                        <td>
+                            <div class="user-actions">
+                                <button class="btn btn-edit btn-small">Редагувати</button>
+                                <button class="btn btn-remove btn-small">Видалити</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td>Developer2</td>
+                        <td>dev2@bugtracker.com</td>
+                        <td><span class="role-badge role-developer">Розробник</span></td>
+                        <td><span class="status-badge status-active">Активний</span></td>
+                        <td>2024-01-14 16:45</td>
+                        <td>
+                            <div class="user-actions">
+                                <button class="btn btn-edit btn-small">Редагувати</button>
+                                <button class="btn btn-remove btn-small">Видалити</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td>Tester1</td>
+                        <td>tester1@bugtracker.com</td>
+                        <td><span class="role-badge role-tester">Тестувальник</span></td>
+                        <td><span class="status-badge status-active">Активний</span></td>
+                        <td>2024-01-15 09:20</td>
+                        <td>
+                            <div class="user-actions">
+                                <button class="btn btn-edit btn-small">Редагувати</button>
+                                <button class="btn btn-remove btn-small">Видалити</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td>Manager1</td>
+                        <td>manager1@bugtracker.com</td>
+                        <td><span class="role-badge role-user">Користувач</span></td>
+                        <td><span class="status-badge status-inactive">Неактивний</span></td>
+                        <td>2024-01-10 11:30</td>
+                        <td>
+                            <div class="user-actions">
+                                <button class="btn btn-edit btn-small">Редагувати</button>
+                                <button class="btn btn-remove btn-small">Видалити</button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="create-user-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Створити нового користувача</h3>
+            <button class="close-btn" onclick="closeModal('create-user-modal')">&times;</button>
+        </div>
+        <form>
+            <div class="form-group">
+                <label class="form-label">Ім'я користувача</label>
+                <label>
+                    <input type="text" class="form-input" placeholder="Введіть ім'я користувача">
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <label>
+                    <input type="email" class="form-input" placeholder="Введіть email адресу">
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Роль</label>
+                <label>
+                    <select class="form-input">
+                        <option value="">Оберіть роль</option>
+                        <option value="admin">Адміністратор</option>
+                        <option value="developer">Розробник</option>
+                        <option value="tester">Тестувальник</option>
+                        <option value="user">Користувач</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Тимчасовий пароль</label>
+                <label>
+                    <input type="password" class="form-input" placeholder="Введіть тимчасовий пароль">
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('create-user-modal')">Скасувати</button>
+                <button type="submit" class="btn btn-create">Створити користувача</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="remove-user-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Видалити користувача</h3>
+            <button class="close-btn" onclick="closeModal('remove-user-modal')">&times;</button>
+        </div>
+        <form>
+            <div class="form-group">
+                <label class="form-label">Оберіть користувача для видалення</label>
+                <label>
+                    <select class="form-input">
+                        <option value="">Оберіть користувача</option>
+                        <option value="2">Developer1 (dev1@bugtracker.com)</option>
+                        <option value="3">Developer2 (dev2@bugtracker.com)</option>
+                        <option value="4">Tester1 (tester1@bugtracker.com)</option>
+                        <option value="5">Manager1 (manager1@bugtracker.com)</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    <input type="checkbox" style="margin-right: 0.5rem;">
+                    Зберегти історію активності користувача
+                </label>
+            </div>
+            <p style="color: #dc3545; margin-bottom: 1rem;">
+                <strong>Увага!</strong> Ця дія незворотна. Користувач буде видалений з системи назавжди.
+            </p>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('remove-user-modal')">Скасувати</button>
+                <button type="submit" class="btn btn-remove">Видалити користувача</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="edit-user-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Редагувати користувача</h3>
+            <button class="close-btn" onclick="closeModal('edit-user-modal')">&times;</button>
+        </div>
+        <form>
+            <div class="form-group">
+                <label class="form-label">Оберіть користувача</label>
+                <label>
+                    <select class="form-input">
+                        <option value="">Оберіть користувача</option>
+                        <option value="1">TestAdmin (admin@bugtracker.com)</option>
+                        <option value="2">Developer1 (dev1@bugtracker.com)</option>
+                        <option value="3">Developer2 (dev2@bugtracker.com)</option>
+                        <option value="4">Tester1 (tester1@bugtracker.com)</option>
+                        <option value="5">Manager1 (manager1@bugtracker.com)</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ім'я користувача</label>
+                <label>
+                    <input type="text" class="form-input" value="Developer1">
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <label>
+                    <input type="email" class="form-input" value="dev1@bugtracker.com">
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Роль</label>
+                <label>
+                    <select class="form-input">
+                        <option value="admin">Адміністратор</option>
+                        <option value="developer" selected>Розробник</option>
+                        <option value="tester">Тестувальник</option>
+                        <option value="user">Користувач</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Статус</label>
+                <label>
+                    <select class="form-input">
+                        <option value="active" selected>Активний</option>
+                        <option value="inactive">Неактивний</option>
+                    </select>
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('edit-user-modal')">Скасувати</button>
+                <button type="submit" class="btn btn-edit">Зберегти зміни</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="src/admin.js"></script>
+</body>
+</html>

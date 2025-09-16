@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Tracker - Головна сторінка</title>
+    <link rel="stylesheet" href="public/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <h1>Bug Tracker</h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#" class="active">Головна</a></li>
+                <li><a href="admin.html">Адміністрування</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <span class="user-name">TestAdmin</span>
+            <button class="sign-out-btn">Вийти</button>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-content">
+        <div class="tabs">
+            <button class="tab active" data-tab="create">Створити звіт</button>
+            <button class="tab" data-tab="edit">Редагувати звіт</button>
+            <button class="tab" data-tab="search">Знайти звіт</button>
+            <button class="tab" data-tab="export">Експорт звіту</button>
+        </div>
+
+        <div class="tab-content active" id="create">
+            <div class="action-bar">
+                <button class="btn btn-primary">Створити новий звіт</button>
+                <button class="btn btn-secondary">Оновити дані</button>
+            </div>
+
+            <div class="reports-table-container">
+                <table class="reports-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Короткий опис</th>
+                        <th>Проект</th>
+                        <th>Тип</th>
+                        <th>Пріоритет</th>
+                        <th>Статус</th>
+                        <th>Репортер</th>
+                        <th>Уповноважений</th>
+                        <th>Створено</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>BUG-101</strong></td>
+                        <td>Помилка при завантаженні великих файлів</td>
+                        <td>QA_Start_Up</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-major">Major</span></td>
+                        <td><span class="status-badge status-new">New</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer1</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BUG-102</strong></td>
+                        <td>Неправильне відображення дати в звітах</td>
+                        <td>Testing_Project</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-medium">Medium</span></td>
+                        <td><span class="status-badge status-in-progress">In Progress</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer2</td>
+                        <td>2024-01-14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TASK-103</strong></td>
+                        <td>Оптимізація швидкості завантаження</td>
+                        <td>QA_Start_Up</td>
+                        <td>Task</td>
+                        <td><span class="priority-badge priority-low">Low</span></td>
+                        <td><span class="status-badge status-fixed">Fixed</span></td>
+                        <td>Manager1</td>
+                        <td>Developer1</td>
+                        <td>2024-01-13</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-content" id="edit">
+            <div class="action-bar">
+                <label>
+                    <select class="filter-select" style="min-width: 200px;">
+                        <option value="">Оберіть ID звіту</option>
+                        <option value="BUG-101">BUG-101</option>
+                        <option value="BUG-102">BUG-102</option>
+                        <option value="TASK-103">TASK-103</option>
+                    </select>
+                </label>
+                <button class="btn btn-primary">Відкрити для редагування</button>
+            </div>
+
+            <div class="reports-table-container">
+                <table class="reports-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Короткий опис</th>
+                        <th>Проект</th>
+                        <th>Тип</th>
+                        <th>Пріоритет</th>
+                        <th>Статус</th>
+                        <th>Репортер</th>
+                        <th>Уповноважений</th>
+                        <th>Створено</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>BUG-101</strong></td>
+                        <td>Помилка при завантаженні великих файлів</td>
+                        <td>QA_Start_Up</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-major">Major</span></td>
+                        <td><span class="status-badge status-new">New</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer1</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BUG-102</strong></td>
+                        <td>Неправильне відображення дати в звітах</td>
+                        <td>Testing_Project</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-medium">Medium</span></td>
+                        <td><span class="status-badge status-in-progress">In Progress</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer2</td>
+                        <td>2024-01-14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TASK-103</strong></td>
+                        <td>Оптимізація швидкості завантаження</td>
+                        <td>QA_Start_Up</td>
+                        <td>Task</td>
+                        <td><span class="priority-badge priority-low">Low</span></td>
+                        <td><span class="status-badge status-fixed">Fixed</span></td>
+                        <td>Manager1</td>
+                        <td>Developer1</td>
+                        <td>2024-01-13</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-content" id="search">
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label class="filter-label">Пошук за ключовими словами</label>
+                    <label>
+                        <input type="text" class="search-input" placeholder="Введіть ключові слова...">
+                    </label>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-id">
+                    <label for="filter-id">ID звіту</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-severity">
+                    <label for="filter-severity">Серйозність</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-status">
+                    <label for="filter-status">Статус</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-reporter">
+                    <label for="filter-reporter">Репортер</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-assignee">
+                    <label for="filter-assignee">Уповноважений</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-type">
+                    <label for="filter-type">Тип звіту</label>
+                </div>
+            </div>
+
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label class="filter-label">ID звіту</label>
+                    <label>
+                        <select class="filter-select" disabled>
+                            <option value="">Оберіть ID</option>
+                            <option value="BUG-101">BUG-101</option>
+                            <option value="BUG-102">BUG-102</option>
+                            <option value="TASK-103">TASK-103</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Серйозність</label>
+                    <label>
+                        <select class="filter-select" disabled>
+                            <option value="">Оберіть серйозність</option>
+                            <option value="critical">Критична</option>
+                            <option value="major">Велика</option>
+                            <option value="medium">Середня</option>
+                            <option value="low">Низька</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Статус</label>
+                    <label>
+                        <select class="filter-select" disabled>
+                            <option value="">Оберіть статус</option>
+                            <option value="new">Новий</option>
+                            <option value="in-progress">В процесі</option>
+                            <option value="fixed">Виправлений</option>
+                            <option value="rejected">Відхилений</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Репортер</label>
+                    <label>
+                        <select class="filter-select" disabled>
+                            <option value="">Оберіть репортера</option>
+                            <option value="testadmin">TestAdmin</option>
+                            <option value="manager1">Manager1</option>
+                            <option value="developer1">Developer1</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Уповноважений</label>
+                    <label>
+                        <select class="filter-select" disabled>
+                            <option value="">Оберіть уповноваженого</option>
+                            <option value="developer1">Developer1</option>
+                            <option value="developer2">Developer2</option>
+                            <option value="tester1">Tester1</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Тип звіту</label>
+                    <label>
+                        <select class="filter-select" disabled>
+                            <option value="">Оберіть тип</option>
+                            <option value="bug">Bug</option>
+                            <option value="task">Task</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <button class="btn btn-primary">Знайти звіт</button>
+                <button class="btn btn-secondary">Очистити фільтри</button>
+            </div>
+
+            <div class="reports-table-container">
+                <table class="reports-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Короткий опис</th>
+                        <th>Проект</th>
+                        <th>Тип</th>
+                        <th>Пріоритет</th>
+                        <th>Статус</th>
+                        <th>Репортер</th>
+                        <th>Уповноважений</th>
+                        <th>Створено</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>BUG-101</strong></td>
+                        <td>Помилка при завантаженні великих файлів</td>
+                        <td>QA_Start_Up</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-major">Major</span></td>
+                        <td><span class="status-badge status-new">New</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer1</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-content" id="export">
+            <div class="action-bar">
+                <button class="btn btn-success">Експортувати в CSV</button>
+                <label>
+                    <select class="filter-select" style="min-width: 200px;">
+                        <option value="all">Всі звіти</option>
+                        <option value="filtered">Лише відфільтровані</option>
+                        <option value="selected">Обрані звіти</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="reports-table-container">
+                <table class="reports-table">
+                    <thead>
+                    <tr>
+                        <th><label for="select-all"></label><input type="checkbox" id="select-all"></th>
+                        <th>ID</th>
+                        <th>Короткий опис</th>
+                        <th>Проект</th>
+                        <th>Тип</th>
+                        <th>Пріоритет</th>
+                        <th>Статус</th>
+                        <th>Репортер</th>
+                        <th>Уповноважений</th>
+                        <th>Створено</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><label>
+                            <input type="checkbox" name="report-select">
+                        </label></td>
+                        <td><strong>BUG-101</strong></td>
+                        <td>Помилка при завантаженні великих файлів</td>
+                        <td>QA_Start_Up</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-major">Major</span></td>
+                        <td><span class="status-badge status-new">New</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer1</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                        <td><label>
+                            <input type="checkbox" name="report-select">
+                        </label></td>
+                        <td><strong>BUG-102</strong></td>
+                        <td>Неправильне відображення дати в звітах</td>
+                        <td>Testing_Project</td>
+                        <td>Bug</td>
+                        <td><span class="priority-badge priority-medium">Medium</span></td>
+                        <td><span class="status-badge status-in-progress">In Progress</span></td>
+                        <td>TestAdmin</td>
+                        <td>Developer2</td>
+                        <td>2024-01-14</td>
+                    </tr>
+                    <tr>
+                        <td><label>
+                            <input type="checkbox" name="report-select">
+                        </label></td>
+                        <td><strong>TASK-103</strong></td>
+                        <td>Оптимізація швидкості завантаження</td>
+                        <td>QA_Start_Up</td>
+                        <td>Task</td>
+                        <td><span class="priority-badge priority-low">Low</span></td>
+                        <td><span class="status-badge status-fixed">Fixed</span></td>
+                        <td>Manager1</td>
+                        <td>Developer1</td>
+                        <td>2024-01-13</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Всі звіти:</span>
+                <span class="stat-value">3</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Показані звіти:</span>
+                <span class="stat-value">3</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Поточний користувач:</span>
+                <span class="stat-value">TestAdmin</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="src/index.js"></script>
+</body>
+</html>
